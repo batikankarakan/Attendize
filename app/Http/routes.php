@@ -10,6 +10,7 @@ Route::group(
      */
     include_once('api_routes.php');
 
+
     /*
      * -------------------------
      * Installer
@@ -734,4 +735,6 @@ Route::group(
     ]);
 
 });
+Route::get('/geosnapshot', 'GeoSnapShotController@index');
+
 
