@@ -1,20 +1,10 @@
 @extends('Shared.Layouts.MasterWithoutMenus')
 
 @section('title')
-    @lang("Organiser.create_organiser")
+    @lang("GeoSnapShots")
 @stop
 
 @section('head')
-    <style>
-        .modal-header {
-            background-color: transparent !important;
-            color: #666 !important;
-            text-shadow: none !important;;
-        }
-    </style>
-    <script>
-        @include('ManageOrganiser.Partials.OrganiserCreateAndEditJS')
-    </script>
 
 @stop
 
@@ -37,7 +27,7 @@
                             {!! Form::label('eventName', "Event name", array('class'=>'required control-label ')) !!}
                             {!!  Form::text('eventName', Input::old('eventName'),
                                         array(
-                                        'class'=>'form-control'
+                                          'class'=>'form-control'
                                         ))  !!}
                         </div>
 
