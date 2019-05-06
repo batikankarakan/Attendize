@@ -736,5 +736,6 @@ Route::group(
 
 });
 Route::get('/geosnapshot', 'GeoSnapShotController@index');
+Route::post('/geosnapshot', 'GeoSnapShotController@store');
 
 

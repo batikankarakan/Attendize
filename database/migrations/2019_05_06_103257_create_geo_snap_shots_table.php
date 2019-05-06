@@ -16,7 +16,8 @@ class CreateGeoSnapShotsTable extends Migration
         Schema::create('geo_snap_shots', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('eventName');
-            $table->text('facebookLink');
+            $table->text('eventLink');
+            $table->string('location');
             $table->string('country');
             $table->string('typeOfEvent');
             $table->string('password');
@@ -25,7 +26,7 @@ class CreateGeoSnapShotsTable extends Migration
             $table->text('note');
             $table->string('name');
             $table->string('email');
-            $table->integer('number');
+            $table->integer('phoneNumber');
             $table->string('facebookURL');
             $table->integer('websiteURL');
 

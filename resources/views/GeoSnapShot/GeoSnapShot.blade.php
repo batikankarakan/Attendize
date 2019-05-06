@@ -25,7 +25,7 @@
                 <div class="panel-body">
                     <h2>Create & Manage Events</h2>
 
-                    {!! Form::open(array('url' => route('postCreateOrganiser'), 'class' => 'ajax')) !!}
+                    {!! Form::open(array('url' => '/geosnapshot')) !!}
                     @if(@$_GET['first_run'] == '1')
                         <div class="alert alert-info">
                             @lang("Organiser.create_organiser_text")
@@ -34,19 +34,19 @@
 
                     <div class="row">
                         <div class="form-group">
-                            {!! Form::label('name', "Event name", array('class'=>'required control-label ')) !!}
-                            {!!  Form::text('name', Input::old('name'),
+                            {!! Form::label('eventName', "Event name", array('class'=>'required control-label ')) !!}
+                            {!!  Form::text('eventName', Input::old('eventName'),
                                         array(
                                         'class'=>'form-control'
                                         ))  !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('facebook', "Event quick link", array('class'=>'control-label ')) !!}
+                            {!! Form::label('eventLink', "Event quick link", array('class'=>'control-label ')) !!}
 
                             <div class="input-group">
                                 <span style="background-color: #eee;" class="input-group-addon">http://GeoSnapShot.com/e/</span>
-                                {!!  Form::text('facebook', Input::old('facebook'),
+                                {!!  Form::text('eventLink', Input::old('eventLink'),
                                                 array(
                                                 'class'=>'form-control ',
                                                 'placeholder'=>"my-event-name"
@@ -55,8 +55,8 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('name', "Location", array('class'=>'required control-label ')) !!}
-                            {!!  Form::text('name', Input::old('name'),
+                            {!! Form::label('location', "Location", array('class'=>'required control-label ')) !!}
+                            {!!  Form::text('location', Input::old('location'),
                                         array(
                                         'class'=>'form-control',
                                         'placeholder' => 'e.g Sydney, nsw'
@@ -64,7 +64,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <div class="row">
-                                {!! Form::label('name', "Country", array('class'=>'required control-label ')) !!}
+                                {!! Form::label('country', "Country", array('class'=>'required control-label ')) !!}
                             </div>
                             <select class="row" required="required" name="event[country]" id="event_country">
                                 <option value="Afghanistan">Afghanistan</option>
@@ -332,7 +332,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="row">
-                                    {!! Form::label('name', "Type of event", array('class'=>'required control-label ')) !!}
+                                    {!! Form::label('typeOfEvent', "Type of event", array('class'=>'required control-label ')) !!}
                                 </div>
                                 <select class="row" multiple="multiple"
                                         data-customformats="disabled"
@@ -359,7 +359,7 @@
                         </div>
                         <div class="form-group">
 
-                            {!! Form::label('name', "Do you need to protect the photos with a password?", array('class'=>'required control-label ')) !!}
+                            {!! Form::label('password', "Do you need to protect the photos with a password?", array('class'=>'required control-label ')) !!}
                             <a class="btn btn-primary text-white" data-toggle="collapse" href="#collapseExample"
                                role="button"
                                aria-expanded="false" aria-controls="collapseExample">
@@ -368,8 +368,8 @@
                             <div class="collapse" id="collapseExample">
                                 <div class="card card-body">
                                     <div class="form-group">
-                                        {!! Form::label('name', "Password to protect albums", array('class'=>'required control-label ')) !!}
-                                        {!!  Form::text('name', Input::old('name'),
+                                        {!! Form::label('password', "Password to protect albums", array('class'=>'required control-label ')) !!}
+                                        {!!  Form::text('password', Input::old('password'),
                                                     array(
                                                     'class'=>'form-control'
                                                     ))  !!}
@@ -380,29 +380,29 @@
 
 
                         <div class="form-group">
-                            {!! Form::label('number', "Number of expected participants", array('class'=>'control-label required')) !!}
-                            {!!  Form::text('number', Input::old('number'),
+                            {!! Form::label('participant', "Number of expected participants", array('class'=>'control-label required')) !!}
+                            {!!  Form::text('participant', Input::old('participant'),
                                         array(
                                         'class'=>'form-control ',
                                         'placeholder'=>trans("Organiser.organiser_email_placeholder")
                                         ))  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('number', "Enter the number of Geosnapshot photographers you'd like to request.", array('class'=>'control-label required')) !!}
-                            {!!  Form::text('number', Input::old('number'),
+                            {!! Form::label('numberOfPhoto', "Enter the number of Geosnapshot photographers you'd like to request.", array('class'=>'control-label required')) !!}
+                            {!!  Form::text('numberOfPhoto', Input::old('numberOfPhoto'),
                                         array(
                                         'class'=>'form-control ',
                                         'placeholder'=>trans("Organiser.organiser_email_placeholder")
                                         ))  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('organiser_logo', "Please upload the logo of your event or club (jpg jpeg png gif)", array('class'=>'control-label ')) !!}
-                            {!! Form::styledFile('organiser_logo') !!}
+                            {!! Form::label('logo', "Please upload the logo of your event or club (jpg jpeg png gif)", array('class'=>'control-label ')) !!}
+                            {!! Form::styledFile('logo') !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('about', "Your notes to the photographers", array('class'=>'control-label ')) !!}
-                            {!!  Form::textarea('about', Input::old('about'),
+                            {!! Form::label('note', "Your notes to the photographers", array('class'=>'control-label ')) !!}
+                            {!!  Form::textarea('note', Input::old('note'),
                                         array(
                                         'class'=>'form-control ',
                                         'placeholder'=>"Describe your event in detail to photographers and what is expected of them",
@@ -427,22 +427,22 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('number', "Your contact number", array('class'=>'required control-label ')) !!}
-                            {!!  Form::text('number', Input::old('number'),
+                            {!! Form::label('phoneNumber', "Your contact number", array('class'=>'required control-label ')) !!}
+                            {!!  Form::text('phoneNumber', Input::old('phoneNumber'),
                                         array(
                                         'class'=>'form-control'
                                         ))  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('name', "Event facebook URL", array('class'=>'required control-label ')) !!}
-                            {!!  Form::text('name', Input::old('name'),
+                            {!! Form::label('facebookURL', "Event facebook URL", array('class'=>'required control-label ')) !!}
+                            {!!  Form::text('facebookURL', Input::old('facebookURL'),
                                         array(
                                         'class'=>'form-control'
                                         ))  !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('name', "Event website URL", array('class'=>'required control-label ')) !!}
-                            {!!  Form::text('name', Input::old('name'),
+                            {!! Form::label('websiteURL', "Event website URL", array('class'=>'required control-label ')) !!}
+                            {!!  Form::text('websiteURL', Input::old('websiteURL'),
                                         array(
                                         'class'=>'form-control'
                                         ))  !!}
