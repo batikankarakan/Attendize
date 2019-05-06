@@ -15,8 +15,11 @@ class GeoSnapShotController extends Controller
 
     public function store(Request $request)
     {
+
         $model = new GeoSnapShot($request->all());
         $model->save();
-        return 'Event created successfully!';
+        return view('GeoSnapShot.GeoSnapShotEvent', [
+            'model' => $model
+        ]);
     }
 }
